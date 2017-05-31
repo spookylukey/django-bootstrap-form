@@ -1,4 +1,3 @@
-from django.template import Context
 from django.template.loader import get_template
 from django import template
 
@@ -9,10 +8,10 @@ def bootstrap(element):
     element_type = element.__class__.__name__.lower()
     if element_type == 'boundfield':
         template = get_template("bootstrapform/field.html")
-        context = Context({'field': element})
+        context = {'field': element}
     else:
         template = get_template("bootstrapform/form.html")
-        context = Context({'form': element})
+        context = {'form': element}
 
     return template.render(context)
 
